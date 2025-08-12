@@ -118,7 +118,7 @@ export default function Index() {
             >
               <div className="text-center max-w-4xl mx-auto px-6 relative z-10">
                 <motion.h1
-                  className="text-5xl md:text-7xl font-extralight tracking-wider mb-6 text-slate-800"
+                  className="text-7xl md:text-9xl font-extralight tracking-wider mb-6 text-slate-800"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
