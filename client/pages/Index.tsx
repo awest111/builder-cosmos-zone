@@ -94,38 +94,72 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header with Logo and Menu */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/30">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <motion.div 
-              className="text-2xl font-light tracking-wider cursor-pointer"
-              onClick={() => setActiveSection('hero')}
-              whileHover={{ scale: 1.02 }}
-            >
-              FORMARK
-            </motion.div>
-            
-            <nav className="flex space-x-12">
-              {menuItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  className="menu-item text-sm font-light tracking-wide py-2 hover:text-foreground/80"
-                  onClick={() => handleMenuClick(item.id)}
-                  whileHover={{ y: -1 }}
-                  whileTap={{ y: 0 }}
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      {/* Building Construction Overlay */}
+      <AnimatePresence>
+        {isBuilding && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+          >
+            <div className="text-center">
+              {/* Construction Animation */}
+              <div className="relative w-64 h-64 mx-auto mb-8">
+                {/* Foundation */}
+                <motion.div
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-slate-600"
+                  initial={{ width: 0 }}
+                  animate={{ width: buildingProgress >= 25 ? 192 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Walls */}
+                <motion.div
+                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-44 bg-slate-500"
+                  initial={{ height: 0 }}
+                  animate={{ height: buildingProgress >= 50 ? 120 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Roof Frame */}
+                <motion.div
+                  className="absolute bottom-32 left-1/2 transform -translate-x-1/2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: buildingProgress >= 75 ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {item.label}
-                </motion.button>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </header>
+                  <div className="w-0 h-0 border-l-[96px] border-r-[96px] border-b-[48px] border-l-transparent border-r-transparent border-b-slate-700" />
+                </motion.div>
+
+                {/* Windows */}
+                <motion.div
+                  className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: buildingProgress >= 100 ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
+                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
+                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
+                </motion.div>
+              </div>
+
+              <motion.p
+                className="text-sm font-light tracking-wider text-muted-foreground"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                Bygger din upplevelse... {buildingProgress}%
+              </motion.p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main Content Area */}
-      <main className="pt-20">
+      <main>
         <AnimatePresence mode="wait">
           {activeSection === 'hero' && (
             <motion.section
