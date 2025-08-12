@@ -219,17 +219,17 @@ export default function Index() {
                       transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
                       whileHover={{ y: -8 }}
                     >
-                      <div className="relative overflow-hidden bg-muted">
-                        <img 
-                          src={project.image} 
+                      <div className="relative overflow-hidden bg-muted h-full">
+                        <img
+                          src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                        
-                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="text-xl font-light mb-1">{project.title}</h3>
-                          <p className="text-sm text-white/80 mb-1">{project.location} • {project.year}</p>
+
+                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                          <h3 className="text-sm font-light mb-1">{project.title}</h3>
+                          <p className="text-xs text-white/80 mb-1">{project.location} • {project.year}</p>
                           <p className="text-xs text-white/60">{project.description}</p>
                         </div>
                       </div>
