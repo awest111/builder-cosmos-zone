@@ -116,30 +116,30 @@ export default function Index() {
                 backgroundRepeat: 'no-repeat'
               }}
             >
-              <div className="text-center max-w-4xl mx-auto px-6">
-                <motion.h1 
-                  className="text-6xl md:text-8xl font-extralight tracking-wider mb-8"
+              <div className="text-center max-w-4xl mx-auto px-6 relative z-10">
+                <motion.h1
+                  className="text-6xl md:text-8xl font-extralight tracking-wider mb-8 text-slate-800"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
                 >
                   FORMARK
                 </motion.h1>
-                
-                <motion.div 
-                  className="w-24 h-px bg-foreground mx-auto mb-8"
+
+                <motion.div
+                  className="w-24 h-px bg-slate-700 mx-auto mb-8"
                   initial={{ width: 0 }}
                   animate={{ width: 96 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
                 />
-                
-                <motion.p 
-                  className="text-lg md:text-xl font-light text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+
+                <motion.p
+                  className="text-lg md:text-xl font-light text-slate-600 max-w-2xl mx-auto leading-relaxed"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
                 >
-                  Innovativ arkitektur som förenar minimalism med funktionalitet. 
+                  Innovativ arkitektur som förenar minimalism med funktionalitet.
                   Vi skapar rum som inspirerar och definierar framtidens byggande.
                 </motion.p>
                 
