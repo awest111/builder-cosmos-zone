@@ -320,58 +320,58 @@ export default function Index() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                  <div className="space-y-8">
+                  <div className="space-y-6">
                     <div>
-                      <h3 className="text-sm font-light tracking-wide uppercase mb-4 text-muted-foreground">Studio</h3>
-                      <p className="text-lg leading-relaxed">
+                      <h3 className="text-sm font-light tracking-wide uppercase mb-2 text-muted-foreground">Studio</h3>
+                      <p className="text-base leading-relaxed">
                         Storgatan 15<br />
                         111 51 Stockholm<br />
                         Sverige
                       </p>
                     </div>
-                    
+
                     <div>
-                      <h3 className="text-sm font-light tracking-wide uppercase mb-4 text-muted-foreground">Kontakt</h3>
-                      <p className="text-lg leading-relaxed">
+                      <h3 className="text-sm font-light tracking-wide uppercase mb-2 text-muted-foreground">Kontakt</h3>
+                      <p className="text-base leading-relaxed">
                         +46 8 123 456 78<br />
                         info@formark.se
                       </p>
                     </div>
                   </div>
-                  
-                  <div className="space-y-6">
+
+                  <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-light tracking-wide uppercase mb-2 text-muted-foreground">
+                      <label className="block text-xs font-light tracking-wide uppercase mb-1 text-muted-foreground">
                         Namn
                       </label>
-                      <input 
-                        type="text" 
-                        className="w-full border-0 border-b border-border bg-transparent py-2 focus:border-foreground focus:outline-none transition-colors"
+                      <input
+                        type="text"
+                        className="w-full border-0 border-b border-border bg-transparent py-1 focus:border-foreground focus:outline-none transition-colors"
                       />
                     </div>
-                    
+
                     <div>
-                      <label className="block text-sm font-light tracking-wide uppercase mb-2 text-muted-foreground">
+                      <label className="block text-xs font-light tracking-wide uppercase mb-1 text-muted-foreground">
                         E-post
                       </label>
-                      <input 
-                        type="email" 
-                        className="w-full border-0 border-b border-border bg-transparent py-2 focus:border-foreground focus:outline-none transition-colors"
+                      <input
+                        type="email"
+                        className="w-full border-0 border-b border-border bg-transparent py-1 focus:border-foreground focus:outline-none transition-colors"
                       />
                     </div>
-                    
+
                     <div>
-                      <label className="block text-sm font-light tracking-wide uppercase mb-2 text-muted-foreground">
+                      <label className="block text-xs font-light tracking-wide uppercase mb-1 text-muted-foreground">
                         Meddelande
                       </label>
-                      <textarea 
-                        rows={4}
-                        className="w-full border-0 border-b border-border bg-transparent py-2 focus:border-foreground focus:outline-none transition-colors resize-none"
+                      <textarea
+                        rows={3}
+                        className="w-full border-0 border-b border-border bg-transparent py-1 focus:border-foreground focus:outline-none transition-colors resize-none"
                       />
                     </div>
-                    
-                    <motion.button 
-                      className="w-full py-3 bg-foreground text-background font-light tracking-wide hover:bg-foreground/90 transition-colors"
+
+                    <motion.button
+                      className="w-full py-2 bg-foreground text-background font-light tracking-wide hover:bg-foreground/90 transition-colors text-sm"
                       whileHover={{ y: -1 }}
                       whileTap={{ y: 0 }}
                     >
