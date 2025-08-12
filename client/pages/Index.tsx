@@ -157,10 +157,10 @@ export default function Index() {
                       whileHover={{ y: -4 }}
                       whileTap={{ y: 0 }}
                     >
-                      <div className="text-sm font-light tracking-wide mb-2 group-hover:text-foreground/80 transition-colors">
+                      <div className="text-sm font-light tracking-wide mb-2 text-slate-700 group-hover:text-slate-900 transition-colors">
                         {item.label}
                       </div>
-                      <div className="text-xs text-muted-foreground">
+                      <div className="text-xs text-slate-500">
                         {item.description}
                       </div>
                     </motion.button>
