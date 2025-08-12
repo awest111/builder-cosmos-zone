@@ -186,26 +186,26 @@ export default function Index() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="min-h-screen py-20"
+              className="h-screen flex flex-col pt-20"
             >
-              <div className="container mx-auto px-6">
-                <motion.div 
-                  className="text-center mb-16"
+              <div className="container mx-auto px-6 flex-1 flex flex-col">
+                <motion.div
+                  className="text-center mb-8"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
                 >
-                  <h2 className="text-4xl md:text-5xl font-extralight tracking-wider mb-4">
+                  <h2 className="text-3xl md:text-4xl font-extralight tracking-wider mb-3">
                     PROJEKT
                   </h2>
-                  <div className="w-16 h-px bg-foreground mx-auto mb-6" />
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  <div className="w-16 h-px bg-foreground mx-auto mb-4" />
+                  <p className="text-base text-muted-foreground max-w-2xl mx-auto">
                     Utforska våra senaste arkitektoniska skapelser som definierar modern design
                   </p>
                 </motion.div>
 
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                <motion.div
+                  className="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1"
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
