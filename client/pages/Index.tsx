@@ -473,9 +473,46 @@ export default function Index() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="h-screen flex items-center justify-center pt-20"
+              className="h-screen flex flex-col"
             >
-              <div className="container mx-auto px-6 max-w-4xl">
+              {/* Navigation Header */}
+              <motion.header
+                className="flex justify-between items-center p-6 border-b border-border/30"
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+              >
+                <motion.button
+                  className="text-xl font-light tracking-wider hover:text-foreground/80 transition-colors"
+                  onClick={() => setActiveSection('hero')}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  FORMARK
+                </motion.button>
+
+                <nav className="flex space-x-8">
+                  <motion.button
+                    className="text-sm font-light tracking-wide py-2 hover:text-foreground/80 transition-colors"
+                    onClick={() => handleMenuClick('projekt')}
+                  >
+                    Projekt
+                  </motion.button>
+                  <motion.button
+                    className="text-sm font-light tracking-wide py-2 hover:text-foreground/80 transition-colors"
+                    onClick={() => handleMenuClick('om')}
+                  >
+                    Om oss
+                  </motion.button>
+                  <motion.button
+                    className="text-sm font-light tracking-wide py-2 border-b-2 border-foreground"
+                    onClick={() => handleMenuClick('kontakt')}
+                  >
+                    Kontakt
+                  </motion.button>
+                </nav>
+              </motion.header>
+
+              <div className="container mx-auto px-6 max-w-4xl flex-1 flex flex-col justify-center">
                 <motion.div
                   className="text-center mb-8"
                   initial={{ y: 30, opacity: 0 }}
