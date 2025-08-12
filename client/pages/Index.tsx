@@ -350,37 +350,159 @@ export default function Index() {
                   </p>
                 </motion.div>
 
+                {/* Innovative Architectural Project Layout */}
                 <motion.div
-                  className="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1"
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  className="flex-1 relative overflow-hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                  {projects.map((project, index) => (
-                    <motion.div
-                      key={project.id}
-                      className="project-grid-item group cursor-pointer"
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
-                      whileHover={{ y: -8 }}
-                    >
-                      <div className="relative overflow-hidden bg-muted h-full">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  {/* Featured Large Project */}
+                  <motion.div
+                    className="absolute top-0 left-0 w-2/3 h-3/5 group cursor-pointer"
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="relative h-full overflow-hidden bg-muted border border-border/20">
+                      <img
+                        src={projects[0].image}
+                        alt={projects[0].title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/0 via-black/0 to-black/60" />
 
-                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="text-sm font-light mb-1">{project.title}</h3>
-                          <p className="text-xs text-white/80 mb-1">{project.location} • {project.year}</p>
-                          <p className="text-xs text-white/60">{project.description}</p>
-                        </div>
+                      {/* Architectural overlay lines */}
+                      <div className="absolute top-4 left-4 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-12 h-px bg-white mb-2" />
+                        <div className="w-8 h-px bg-white mb-2" />
+                        <div className="w-16 h-px bg-white" />
                       </div>
-                    </motion.div>
-                  ))}
+
+                      {/* Project info overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.6 }}
+                        >
+                          <h3 className="text-2xl font-extralight mb-2 tracking-wide">{projects[0].title}</h3>
+                          <p className="text-sm text-white/80 mb-1">{projects[0].location} • {projects[0].year}</p>
+                          <p className="text-sm text-white/70 leading-relaxed">{projects[0].description}</p>
+                        </motion.div>
+
+                        {/* Architectural corner detail */}
+                        <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b border-white/40" />
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Vertical Stack of Medium Projects */}
+                  <div className="absolute top-0 right-0 w-1/3 h-3/5 space-y-2">
+                    {projects.slice(1, 3).map((project, index) => (
+                      <motion.div
+                        key={project.id}
+                        className="h-1/2 group cursor-pointer relative"
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.4 + index * 0.2, duration: 0.8 }}
+                        whileHover={{ x: -4 }}
+                      >
+                        <div className="relative h-full overflow-hidden bg-muted border border-border/20">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
+
+                          {/* Minimalist info overlay */}
+                          <div className="absolute inset-0 flex items-end p-4">
+                            <div className="text-white">
+                              <h4 className="text-lg font-light tracking-wide">{project.title}</h4>
+                              <p className="text-xs text-white/70">{project.location}</p>
+                            </div>
+                          </div>
+
+                          {/* Artistic line element */}
+                          <motion.div
+                            className="absolute top-4 right-4 w-6 h-6 border-t border-r border-white/60"
+                            initial={{ opacity: 0, rotate: 45 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            transition={{ delay: 0.8 + index * 0.1 }}
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Bottom Horizontal Gallery */}
+                  <div className="absolute bottom-0 left-0 right-0 h-2/5 flex space-x-3 pt-3">
+                    {projects.slice(3).map((project, index) => (
+                      <motion.div
+                        key={project.id}
+                        className="flex-1 group cursor-pointer relative overflow-hidden"
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.6 + index * 0.15, duration: 0.8 }}
+                        whileHover={{ y: -6, scale: 1.02 }}
+                      >
+                        <div className="relative h-full bg-muted border border-border/20">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
+                          />
+
+                          {/* Gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+
+                          {/* Artistic typography overlay */}
+                          <div className="absolute inset-0 flex flex-col justify-between p-4">
+                            {/* Top corner number */}
+                            <motion.div
+                              className="self-end text-white/60 font-light text-xs"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 1 + index * 0.1 }}
+                            >
+                              0{index + 4}
+                            </motion.div>
+
+                            {/* Bottom project info */}
+                            <div className="text-white">
+                              <h4 className="text-sm font-light tracking-wide mb-1">{project.title}</h4>
+                              <div className="flex items-center space-x-2 text-xs text-white/70">
+                                <span>{project.location}</span>
+                                <div className="w-px h-3 bg-white/40" />
+                                <span>{project.year}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Hover architectural detail */}
+                          <motion.div
+                            className="absolute top-0 left-0 w-full h-px bg-white transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Artistic background elements */}
+                  <motion.div
+                    className="absolute top-1/4 left-1/4 w-32 h-px bg-foreground/10"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 1.2, duration: 1 }}
+                  />
+                  <motion.div
+                    className="absolute bottom-1/3 right-1/4 w-px h-24 bg-foreground/10"
+                    initial={{ scaleY: 0 }}
+                    animate={{ scaleY: 1 }}
+                    transition={{ delay: 1.4, duration: 1 }}
+                  />
                 </motion.div>
               </div>
             </motion.section>
