@@ -66,7 +66,31 @@ export default function Index() {
   ];
 
   const handleMenuClick = (section: ActiveSection) => {
-    setActiveSection(section);
+    if (section === 'hero') {
+      setActiveSection(section);
+      return;
+    }
+
+    setIsBuilding(true);
+    setBuildingProgress(0);
+
+    // Simulate building construction
+    const buildingSteps = [0, 25, 50, 75, 100];
+    let currentStep = 0;
+
+    const buildingInterval = setInterval(() => {
+      currentStep++;
+      if (currentStep < buildingSteps.length) {
+        setBuildingProgress(buildingSteps[currentStep]);
+      } else {
+        clearInterval(buildingInterval);
+        setTimeout(() => {
+          setActiveSection(section);
+          setIsBuilding(false);
+          setBuildingProgress(0);
+        }, 300);
+      }
+    }, 200);
   };
 
   return (
