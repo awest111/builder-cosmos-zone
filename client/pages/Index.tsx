@@ -118,7 +118,7 @@ export default function Index() {
             >
               <div className="text-center max-w-4xl mx-auto px-6 relative z-10">
                 <motion.h1
-                  className="text-6xl md:text-8xl font-extralight tracking-wider mb-8 text-slate-800"
+                  className="text-5xl md:text-7xl font-extralight tracking-wider mb-6 text-slate-800"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
@@ -127,14 +127,14 @@ export default function Index() {
                 </motion.h1>
 
                 <motion.div
-                  className="w-24 h-px bg-slate-700 mx-auto mb-8"
+                  className="w-24 h-px bg-slate-700 mx-auto mb-6"
                   initial={{ width: 0 }}
                   animate={{ width: 96 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
                 />
 
                 <motion.p
-                  className="text-lg md:text-xl font-light text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4"
+                  className="text-base md:text-lg font-light text-slate-600 max-w-2xl mx-auto leading-relaxed mb-3"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
@@ -144,16 +144,16 @@ export default function Index() {
                 </motion.p>
 
                 <motion.div
-                  className="text-sm font-light tracking-widest text-slate-500 uppercase"
+                  className="text-xs font-light tracking-widest text-slate-500 uppercase"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
                 >
                   Arkitektbyrå • Etablerad 2018 • Stockholm
                 </motion.div>
-                
-                <motion.div 
-                  className="mt-16 flex justify-center space-x-16"
+
+                <motion.div
+                  className="mt-10 flex justify-center space-x-12"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 1.4, duration: 0.8 }}
