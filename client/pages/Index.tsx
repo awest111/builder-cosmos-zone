@@ -56,6 +56,8 @@ type ActiveSection = 'hero' | 'projekt' | 'om' | 'kontakt';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<ActiveSection>('hero');
+  const [isBuilding, setIsBuilding] = useState(false);
+  const [buildingProgress, setBuildingProgress] = useState(0);
 
   const menuItems = [
     { id: 'projekt' as const, label: 'Projekt', description: 'Våra arkitektoniska verk' },
