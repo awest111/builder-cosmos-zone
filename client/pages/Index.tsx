@@ -95,64 +95,173 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* Building Construction Overlay */}
+      {/* Architectural Construction Overlay */}
       <AnimatePresence>
         {isBuilding && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-slate-50 flex items-center justify-center"
           >
             <div className="text-center">
-              {/* Construction Animation */}
-              <div className="relative w-64 h-64 mx-auto mb-8">
-                {/* Foundation */}
-                <motion.div
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-slate-600"
-                  initial={{ width: 0 }}
-                  animate={{ width: buildingProgress >= 25 ? 192 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
+              {/* Technical Drawing Animation */}
+              <div className="relative w-96 h-96 mx-auto mb-8 bg-white border border-slate-300 shadow-lg">
 
-                {/* Walls */}
-                <motion.div
-                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-44 bg-slate-500"
-                  initial={{ height: 0 }}
-                  animate={{ height: buildingProgress >= 50 ? 120 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
+                {/* Blueprint Grid Background */}
+                <div className="absolute inset-0 opacity-20">
+                  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" strokeWidth="0.5"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                  </svg>
+                </div>
 
-                {/* Roof Frame */}
-                <motion.div
-                  className="absolute bottom-32 left-1/2 transform -translate-x-1/2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: buildingProgress >= 75 ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
+                {/* Phase 1: Site Analysis & Foundation Lines */}
+                <motion.g
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{
+                    pathLength: buildingProgress >= 25 ? 1 : 0,
+                    opacity: buildingProgress >= 25 ? 1 : 0
+                  }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                  <div className="w-0 h-0 border-l-[96px] border-r-[96px] border-b-[48px] border-l-transparent border-r-transparent border-b-slate-700" />
-                </motion.div>
+                  <svg className="absolute inset-0 w-full h-full">
+                    {/* Foundation outline */}
+                    <motion.rect
+                      x="80" y="320" width="240" height="8"
+                      fill="none" stroke="#0f172a" strokeWidth="2"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: buildingProgress >= 25 ? 1 : 0 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    {/* Construction lines */}
+                    <motion.line
+                      x1="50" y1="324" x2="350" y2="324"
+                      stroke="#64748b" strokeWidth="1" strokeDasharray="5,5"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: buildingProgress >= 25 ? 1 : 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                    />
+                  </svg>
+                </motion.g>
 
-                {/* Windows */}
-                <motion.div
-                  className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-8"
+                {/* Phase 2: Structural Framework */}
+                <motion.g
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{
+                    pathLength: buildingProgress >= 50 ? 1 : 0,
+                    opacity: buildingProgress >= 50 ? 1 : 0
+                  }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                  <svg className="absolute inset-0 w-full h-full">
+                    {/* Vertical structural lines */}
+                    <motion.line x1="80" y1="320" x2="80" y2="180" stroke="#0f172a" strokeWidth="2" />
+                    <motion.line x1="200" y1="320" x2="200" y2="180" stroke="#0f172a" strokeWidth="2" />
+                    <motion.line x1="320" y1="320" x2="320" y2="180" stroke="#0f172a" strokeWidth="2" />
+
+                    {/* Horizontal structural lines */}
+                    <motion.line x1="80" y1="180" x2="320" y2="180" stroke="#0f172a" strokeWidth="2" />
+                    <motion.line x1="80" y1="250" x2="320" y2="250" stroke="#0f172a" strokeWidth="2" />
+
+                    {/* Dimension lines */}
+                    <motion.line x1="70" y1="180" x2="70" y2="320" stroke="#64748b" strokeWidth="1" />
+                    <motion.circle cx="70" cy="180" r="2" fill="#64748b" />
+                    <motion.circle cx="70" cy="320" r="2" fill="#64748b" />
+                  </svg>
+                </motion.g>
+
+                {/* Phase 3: Envelope & Form */}
+                <motion.g
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{
+                    pathLength: buildingProgress >= 75 ? 1 : 0,
+                    opacity: buildingProgress >= 75 ? 1 : 0
+                  }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                  <svg className="absolute inset-0 w-full h-full">
+                    {/* Building envelope */}
+                    <motion.polygon
+                      points="80,180 200,120 320,180 320,320 80,320"
+                      fill="rgba(148, 163, 184, 0.1)"
+                      stroke="#334155"
+                      strokeWidth="2"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: buildingProgress >= 75 ? 1 : 0 }}
+                      transition={{ duration: 1 }}
+                    />
+
+                    {/* Roof structure */}
+                    <motion.line x1="80" y1="180" x2="200" y2="120" stroke="#334155" strokeWidth="1.5" />
+                    <motion.line x1="200" y1="120" x2="320" y2="180" stroke="#334155" strokeWidth="1.5" />
+                  </svg>
+                </motion.g>
+
+                {/* Phase 4: Details & Finishes */}
+                <motion.g
                   initial={{ opacity: 0 }}
                   animate={{ opacity: buildingProgress >= 100 ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
-                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
-                  <div className="w-8 h-12 bg-blue-200 border border-slate-400" />
+                  <svg className="absolute inset-0 w-full h-full">
+                    {/* Windows */}
+                    <motion.rect x="110" y="200" width="30" height="40"
+                      fill="rgba(59, 130, 246, 0.2)" stroke="#334155" strokeWidth="1" />
+                    <motion.rect x="185" y="200" width="30" height="40"
+                      fill="rgba(59, 130, 246, 0.2)" stroke="#334155" strokeWidth="1" />
+                    <motion.rect x="260" y="200" width="30" height="40"
+                      fill="rgba(59, 130, 246, 0.2)" stroke="#334155" strokeWidth="1" />
+
+                    {/* Door */}
+                    <motion.rect x="185" y="270" width="30" height="50"
+                      fill="rgba(120, 113, 108, 0.3)" stroke="#334155" strokeWidth="1" />
+
+                    {/* Annotations */}
+                    <motion.text x="340" y="250" className="text-xs fill-slate-600" fontFamily="monospace">
+                      FORMARK
+                    </motion.text>
+                    <motion.text x="340" y="265" className="text-xs fill-slate-500" fontFamily="monospace">
+                      ARKITEKTBYRÅ
+                    </motion.text>
+                  </svg>
+                </motion.g>
+
+                {/* Technical Title Block */}
+                <motion.div
+                  className="absolute bottom-4 right-4 bg-white border border-slate-300 p-2"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
+                  <div className="text-xs font-mono text-slate-700">
+                    <div>PROJEKT: {buildingProgress >= 25 ? 'GRUND' : buildingProgress >= 50 ? 'STOMME' : buildingProgress >= 75 ? 'KLIMATSKAL' : 'DETALJER'}</div>
+                    <div>SKALA: 1:200</div>
+                    <div>STATUS: {buildingProgress}%</div>
+                  </div>
                 </motion.div>
               </div>
 
-              <motion.p
-                className="text-sm font-light tracking-wider text-muted-foreground"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <motion.div
+                className="flex items-center justify-center space-x-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
               >
-                Bygger din upplevelse... {buildingProgress}%
-              </motion.p>
+                <div className="w-8 h-px bg-slate-400" />
+                <motion.p
+                  className="text-sm font-light tracking-wider text-slate-600 font-mono"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  GENERERAR ARKITEKTONISK UPPLEVELSE
+                </motion.p>
+                <div className="w-8 h-px bg-slate-400" />
+              </motion.div>
             </div>
           </motion.div>
         )}
