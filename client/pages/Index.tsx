@@ -134,7 +134,7 @@ export default function Index() {
                 />
 
                 <motion.p
-                  className="text-lg md:text-xl font-light text-slate-600 max-w-2xl mx-auto leading-relaxed"
+                  className="text-lg md:text-xl font-light text-slate-600 max-w-2xl mx-auto leading-relaxed mb-4"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
@@ -142,6 +142,15 @@ export default function Index() {
                   Innovativ arkitektur som förenar minimalism med funktionalitet.
                   Vi skapar rum som inspirerar och definierar framtidens byggande.
                 </motion.p>
+
+                <motion.div
+                  className="text-sm font-light tracking-widest text-slate-500 uppercase"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8 }}
+                >
+                  Arkitektbyrå • Etablerad 2018 • Stockholm
+                </motion.div>
                 
                 <motion.div 
                   className="mt-16 flex justify-center space-x-16"
