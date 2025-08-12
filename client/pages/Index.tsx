@@ -95,83 +95,89 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* Pixel Growing Animation Overlay */}
+      {/* Professional Minimalistic Transition */}
       <AnimatePresence>
         {isBuilding && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-900 flex items-center justify-center"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-background"
           >
-            <div className="relative">
-              {/* Pixel Growth Animation */}
-              <motion.div
-                className="bg-slate-200"
-                initial={{
-                  width: 1,
-                  height: 1,
-                  borderRadius: '50%'
-                }}
-                animate={{
-                  width: buildingProgress < 100 ? Math.max(1, buildingProgress * 8) : window.innerWidth * 2,
-                  height: buildingProgress < 100 ? Math.max(1, buildingProgress * 8) : window.innerHeight * 2,
-                  borderRadius: buildingProgress >= 50 ? '0%' : '50%'
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeOut"
-                }}
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 1
-                }}
-              />
+            {/* Clean geometric overlay */}
+            <motion.div
+              className="absolute inset-0 bg-foreground/5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
 
-              {/* Pixel Progress Text */}
+            {/* Architectural transition bars */}
+            <div className="absolute inset-0 flex">
+              {Array.from({ length: 5 }, (_, i) => (
+                <motion.div
+                  key={i}
+                  className="flex-1 bg-foreground"
+                  initial={{ scaleY: 0, originY: 1 }}
+                  animate={{ scaleY: buildingProgress >= (i + 1) * 20 ? 1 : 0 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeInOut",
+                    delay: i * 0.05
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Minimalistic progress indicator */}
+            <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
-                className="relative z-10 text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: buildingProgress < 75 ? 1 : 0 }}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: buildingProgress < 90 ? 1 : 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
+                {/* Clean typography */}
                 <motion.div
-                  className="text-white font-mono text-sm mb-2"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-background font-light tracking-[0.2em] text-sm mb-4"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 >
-                  GENERERAR SIDA...
+                  LADDAR
                 </motion.div>
-                <div className="text-white font-mono text-xs">
-                  {buildingProgress}% | {Math.floor(buildingProgress * 8)}px
+
+                {/* Sophisticated progress line */}
+                <div className="relative w-48 h-px bg-background/20 mx-auto">
+                  <motion.div
+                    className="absolute left-0 top-0 h-full bg-background"
+                    initial={{ width: '0%' }}
+                    animate={{ width: `${buildingProgress}%` }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  />
                 </div>
 
-                {/* Pixel visualization */}
+                {/* Clean percentage display */}
                 <motion.div
-                  className="mt-4 flex justify-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2 }}
+                  className="text-background/80 font-light text-xs mt-4 tracking-wider"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
                 >
-                  <div className="grid grid-cols-8 gap-px">
-                    {Array.from({ length: 64 }, (_, i) => (
-                      <motion.div
-                        key={i}
-                        className="w-1 h-1"
-                        initial={{ backgroundColor: '#1e293b' }}
-                        animate={{
-                          backgroundColor: i < (buildingProgress * 64 / 100) ? '#e2e8f0' : '#1e293b'
-                        }}
-                        transition={{ delay: i * 0.01, duration: 0.1 }}
-                      />
-                    ))}
-                  </div>
+                  {buildingProgress}%
                 </motion.div>
               </motion.div>
             </div>
+
+            {/* Subtle corner accent */}
+            <motion.div
+              className="absolute bottom-6 right-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+            >
+              <div className="w-8 h-8 border-l border-b border-background/40" />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
