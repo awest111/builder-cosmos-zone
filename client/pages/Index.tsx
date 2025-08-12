@@ -247,27 +247,27 @@ export default function Index() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="min-h-screen flex items-center justify-center py-20"
+              className="h-screen flex items-center justify-center pt-20"
             >
               <div className="container mx-auto px-6 max-w-4xl text-center">
-                <motion.h2 
-                  className="text-4xl md:text-5xl font-extralight tracking-wider mb-8"
+                <motion.h2
+                  className="text-3xl md:text-4xl font-extralight tracking-wider mb-6"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
                 >
                   OM OSS
                 </motion.h2>
-                
-                <motion.div 
-                  className="w-16 h-px bg-foreground mx-auto mb-12"
+
+                <motion.div
+                  className="w-16 h-px bg-foreground mx-auto mb-8"
                   initial={{ width: 0 }}
                   animate={{ width: 64 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
                 />
-                
-                <motion.div 
-                  className="space-y-8 text-lg leading-relaxed text-muted-foreground"
+
+                <motion.div
+                  className="space-y-6 text-base md:text-lg leading-relaxed text-muted-foreground"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
