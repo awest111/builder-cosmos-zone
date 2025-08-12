@@ -110,7 +110,7 @@ export default function Index() {
               transition={{ duration: 0.8 }}
               className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden"
               style={{
-                backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('https://images.pexels.com/photos/1779826/pexels-photo-1779826.jpeg')`,
+                backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('https://images.pexels.com/photos/33059204/pexels-photo-33059204.jpeg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
