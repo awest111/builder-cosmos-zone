@@ -108,7 +108,13 @@ export default function Index() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="hero-section min-h-screen flex items-center justify-center"
+              className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden"
+              style={{
+                backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('https://images.pexels.com/photos/2736834/pexels-photo-2736834.jpeg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             >
               <div className="text-center max-w-4xl mx-auto px-6">
                 <motion.h1 
