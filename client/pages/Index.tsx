@@ -273,140 +273,90 @@ export default function Index() {
                 backgroundRepeat: 'no-repeat'
               }}
             >
-              {/* Architectural Menu Grid */}
-              <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
-                {/* Top Left - Logo */}
-                <motion.div
-                  className="flex items-center justify-center border-r border-b border-slate-300/30"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1, duration: 0.6 }}
-                >
-                  <div className="text-xl font-light tracking-wider text-slate-700">FORMARK</div>
-                </motion.div>
-
-                {/* Top Center - Tagline */}
-                <motion.div
-                  className="flex items-center justify-center border-r border-b border-slate-300/30"
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                >
-                  <div className="text-xs font-light tracking-widest text-slate-500 uppercase text-center">
-                    Arkitektbyrå<br />Etablerad 2018
-                  </div>
-                </motion.div>
-
-                {/* Top Right - Projekt */}
-                <motion.button
-                  className="flex flex-col items-center justify-center border-b border-slate-300/30 group relative overflow-hidden"
-                  onClick={() => handleMenuClick('projekt')}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="absolute inset-0 bg-slate-200/50 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                  <div className="relative z-10 text-center">
-                    <div className="text-lg font-light tracking-wide mb-1 text-slate-700">PROJEKT</div>
-                    <div className="text-xs text-slate-500">Våra arkitektoniska verk</div>
-
-                    {/* Architectural lines */}
-                    <motion.div
-                      className="mt-4 flex space-x-1"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1, duration: 0.6 }}
-                    >
-                      <div className="w-8 h-px bg-slate-400" />
-                      <div className="w-4 h-px bg-slate-400" />
-                      <div className="w-6 h-px bg-slate-400" />
-                    </motion.div>
-                  </div>
-                </motion.button>
-
-                {/* Middle Left - Empty */}
-                <div className="border-r border-b border-slate-300/30" />
-
-                {/* Center - Main Title */}
-                <motion.div
-                  className="flex flex-col items-center justify-center border-r border-b border-slate-300/30"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+              <div className="text-center max-w-4xl mx-auto px-6 relative z-10 flex flex-col justify-center h-full">
+                <motion.h1
+                  className="text-7xl md:text-9xl font-extralight tracking-wider mb-6 text-slate-800"
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
                 >
-                  <h1 className="text-6xl md:text-8xl font-extralight tracking-wider text-slate-800 text-center">
-                    FORMARK
-                  </h1>
-                  <div className="w-24 h-px bg-slate-700 mt-4" />
-                </motion.div>
+                  FORMARK
+                </motion.h1>
 
-                {/* Middle Right - Om oss */}
-                <motion.button
-                  className="flex flex-col items-center justify-center border-b border-slate-300/30 group relative overflow-hidden"
-                  onClick={() => handleMenuClick('om')}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7, duration: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="absolute inset-0 bg-slate-200/50 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                  <div className="relative z-10 text-center">
-                    <div className="text-lg font-light tracking-wide mb-1 text-slate-700">OM OSS</div>
-                    <div className="text-xs text-slate-500">Vår vision och filosofi</div>
-
-                    {/* Architectural circle */}
-                    <motion.div
-                      className="mt-4 flex justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.2, duration: 0.6 }}
-                    >
-                      <div className="w-8 h-8 border border-slate-400 rounded-full" />
-                    </motion.div>
-                  </div>
-                </motion.button>
-
-                {/* Bottom Left - Description */}
                 <motion.div
-                  className="flex items-center justify-center border-r border-slate-300/30 p-6"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.6 }}
+                  className="w-24 h-px bg-slate-700 mx-auto mb-6"
+                  initial={{ width: 0 }}
+                  animate={{ width: 96 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                />
+
+                <motion.p
+                  className="text-base md:text-lg font-light text-slate-600 max-w-2xl mx-auto leading-relaxed mb-3"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.8 }}
                 >
-                  <p className="text-sm font-light text-slate-600 text-center leading-relaxed">
-                    Innovativ arkitektur som förenar minimalism med funktionalitet
-                  </p>
+                  Innovativ arkitektur som förenar minimalism med funktionalitet.
+                  Vi skapar rum som inspirerar och definierar framtidens byggande.
+                </motion.p>
+
+                <motion.div
+                  className="text-xs font-light tracking-widest text-slate-500 uppercase"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8 }}
+                >
+                  Arkitektbyrå • Etablerad 2018 • Stockholm
                 </motion.div>
 
-                {/* Bottom Center - Empty */}
-                <div className="border-r border-slate-300/30" />
-
-                {/* Bottom Right - Kontakt */}
-                <motion.button
-                  className="flex flex-col items-center justify-center group relative overflow-hidden"
-                  onClick={() => handleMenuClick('kontakt')}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1, duration: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
+                <motion.div
+                  className="mt-10 flex justify-center space-x-12"
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 1.4, duration: 0.8 }}
                 >
-                  <div className="absolute inset-0 bg-slate-200/50 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  <div className="relative z-10 text-center">
-                    <div className="text-lg font-light tracking-wide mb-1 text-slate-700">KONTAKT</div>
-                    <div className="text-xs text-slate-500">Låt oss skapa tillsammans</div>
-
-                    {/* Architectural triangle */}
-                    <motion.div
-                      className="mt-4 flex justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.4, duration: 0.6 }}
+                  {menuItems.map((item, index) => (
+                    <motion.button
+                      key={item.id}
+                      className="group text-center relative overflow-hidden p-4 border border-slate-300/30 hover:border-slate-400/50 transition-colors"
+                      onClick={() => handleMenuClick(item.id)}
+                      whileHover={{ y: -4 }}
+                      whileTap={{ y: 0 }}
                     >
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-b-8 border-l-transparent border-r-transparent border-b-slate-400" />
-                    </motion.div>
-                  </div>
-                </motion.button>
+                      <div className="absolute inset-0 bg-slate-200/30 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                      <div className="relative z-10">
+                        <div className="text-sm font-light tracking-wide mb-2 text-slate-700 group-hover:text-slate-900 transition-colors">
+                          {item.label}
+                        </div>
+                        <div className="text-xs text-slate-500">
+                          {item.description}
+                        </div>
+
+                        {/* Architectural elements */}
+                        <motion.div
+                          className="mt-3 flex justify-center"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 1.6 + index * 0.1, duration: 0.6 }}
+                        >
+                          {item.id === 'projekt' && (
+                            <div className="flex space-x-1">
+                              <div className="w-4 h-px bg-slate-400" />
+                              <div className="w-2 h-px bg-slate-400" />
+                              <div className="w-3 h-px bg-slate-400" />
+                            </div>
+                          )}
+                          {item.id === 'om' && (
+                            <div className="w-4 h-4 border border-slate-400 rounded-full" />
+                          )}
+                          {item.id === 'kontakt' && (
+                            <div className="w-0 h-0 border-l-2 border-r-2 border-b-4 border-l-transparent border-r-transparent border-b-slate-400" />
+                          )}
+                        </motion.div>
+                      </div>
+                    </motion.button>
+                  ))}
+                </motion.div>
               </div>
             </motion.section>
           )}
